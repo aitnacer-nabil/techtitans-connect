@@ -9,6 +9,14 @@ import { FriendsComponent } from './components/friends/friends.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { AuthenticationComponent } from './components/authentication/authentication.component';
 import { NotificationComponent } from './components/notification/notification.component';
+import { HomeComponent } from './components/home/home.component';
+import { TestComponent } from './test/test.component';
+import { PostComponent } from './components/post/post.component';
+import { HeaderComponent } from './components/header/header.component';
+import { AddPostComponent } from './components/add-post/add-post.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { SidebarFriendsComponent } from './components/sidebar-friends/sidebar-friends.component';
+import { SidebarSuggestionComponent } from './components/sidebar-suggestion/sidebar-suggestion.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +26,15 @@ import { NotificationComponent } from './components/notification/notification.co
     FriendsComponent,
     ProfileComponent,
     AuthenticationComponent,
-    NotificationComponent
+    NotificationComponent,
+    HomeComponent,
+    TestComponent,
+    PostComponent,
+    HeaderComponent,
+    AddPostComponent,
+    SidebarComponent,
+    SidebarFriendsComponent,
+    SidebarSuggestionComponent
   ],
   imports: [
     BrowserModule,
