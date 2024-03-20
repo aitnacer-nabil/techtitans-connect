@@ -17,6 +17,7 @@ import { AddPostComponent } from './components/add-post/add-post.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { SidebarFriendsComponent } from './components/sidebar-friends/sidebar-friends.component';
 import { SidebarSuggestionComponent } from './components/sidebar-suggestion/sidebar-suggestion.component';
+import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { SidebarSuggestionComponent } from './components/sidebar-suggestion/side
     AddPostComponent,
     SidebarComponent,
     SidebarFriendsComponent,
-    SidebarSuggestionComponent
+    SidebarSuggestionComponent,
+    EditProfileComponent
   ],
   imports: [
     BrowserModule,
