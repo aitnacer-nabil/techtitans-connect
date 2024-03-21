@@ -24,7 +24,7 @@
             ],
             "styles": [
               "src/styles.css",
-              "assets/home.css"
+              "src/assets/home.css"
             ],
             "scripts": []
           },
