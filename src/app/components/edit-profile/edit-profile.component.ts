@@ -25,4 +25,16 @@ export class EditProfileComponent implements OnInit {
       }
     );
   }
+
+// Add this method inside the EditProfileComponent class
+  onSubmit(): void {
+    this.editProfileService.updateProfile(this.user).subscribe(
+      response => {
+        console.log('Profile updated successfully:', response);
+      },
+      error => {
+        console.error('Error:', error);
+      }
+    );
+  }
 }
