@@ -18,6 +18,8 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { SidebarFriendsComponent } from './components/sidebar-friends/sidebar-friends.component';
 import { SidebarSuggestionComponent } from './components/sidebar-suggestion/sidebar-suggestion.component';
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
+import {HttpClientModule} from "@angular/common/http";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -40,7 +42,9 @@ import { EditProfileComponent } from './components/edit-profile/edit-profile.com
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
