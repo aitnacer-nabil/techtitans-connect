@@ -12,7 +12,7 @@ export class EditprofileService {
   constructor(private http: HttpClient) { }
 
   getProfile() {
-    const token = 'eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MiwiZW1haWwiOiJ5YXNzaW5lQGdtYWlsLmNvbSIsInN1YiI6Inlhc3NpbmUiLCJpYXQiOjE3MTEwMzIyNDQsImV4cCI6MTcxMTAzNDA0NH0.OY-Q5rW4PvRfca5FGMe66MFwbBdOgDjuFTSx-g_JU1M';
+    const token = 'eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZW1haWwiOiJ5YXNzaW5lQGdtYWlsLmNvbSIsInN1YiI6Inlhc3NpbmUiLCJpYXQiOjE3MTExMDIwMjcsImV4cCI6MTcxMTEwMzgyN30.jROGk6VTzdLluifd1e-Ua2_7qag3cj2xzQ_fPYrNi3Y';
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
 
     return this.http.get(this.url, { headers });
@@ -20,7 +20,7 @@ export class EditprofileService {
 
 // Add this method inside the EditprofileService class
   updateProfile(user: any): Observable<any> {
-    const token = 'eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MiwiZW1haWwiOiJ5YXNzaW5lQGdtYWlsLmNvbSIsInN1YiI6Inlhc3NpbmUiLCJpYXQiOjE3MTEwMzIyNDQsImV4cCI6MTcxMTAzNDA0NH0.OY-Q5rW4PvRfca5FGMe66MFwbBdOgDjuFTSx-g_JU1M';
+    const token = 'eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZW1haWwiOiJ5YXNzaW5lQGdtYWlsLmNvbSIsInN1YiI6Inlhc3NpbmUiLCJpYXQiOjE3MTExMDIwMjcsImV4cCI6MTcxMTEwMzgyN30.jROGk6VTzdLluifd1e-Ua2_7qag3cj2xzQ_fPYrNi3Y';
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
 
     return this.http.put(this.url1, user, { headers });
