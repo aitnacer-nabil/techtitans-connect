@@ -17,6 +17,12 @@ import { AddPostComponent } from './components/add-post/add-post.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { SidebarFriendsComponent } from './components/sidebar-friends/sidebar-friends.component';
 import { SidebarSuggestionComponent } from './components/sidebar-suggestion/sidebar-suggestion.component';
+import { ReactionBarComponent } from './components/reaction-bar/reaction-bar.component';
+import { CommentSectionComponent } from './components/comment-section/comment-section.component';
+import { CommentInputComponent } from './components/comment-input/comment-input.component';
+import { ReactionIconsComponent } from './components/reaction-icons/reaction-icons.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
@@ -34,11 +40,16 @@ import { SidebarSuggestionComponent } from './components/sidebar-suggestion/side
     AddPostComponent,
     SidebarComponent,
     SidebarFriendsComponent,
-    SidebarSuggestionComponent
+    SidebarSuggestionComponent,
+    ReactionBarComponent,
+    CommentSectionComponent,
+    CommentInputComponent,
+    ReactionIconsComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
