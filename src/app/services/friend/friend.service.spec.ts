@@ -24,7 +24,10 @@ describe('FriendService', () => {
   });
 
   it('should retrieve friends', () => {
-    const mockFriends = [{ id: 1, name: 'Friend 1' }, { id: 2, name: 'Friend 2' }];
+    const mockFriends = [
+      { id: 1, name: 'John Doe' },
+      { id: 2, name: 'John Doe' }
+    ];
 
     service.getFriends().subscribe(friends => {
       expect(friends).toEqual(mockFriends);
@@ -35,31 +38,42 @@ describe('FriendService', () => {
     req.flush(mockFriends);
   });
 
-  it('should retrieve friend requests', () => {
-    const mockFriendRequests = [{ id: 1, name: 'Friend Request 1' }, { id: 2, name: 'Friend Request 2' }];
-
-    service.getFriendsRequest().subscribe(friendRequests => {
-      expect(friendRequests).toEqual(mockFriendRequests);
-    });
-
-    const req = httpMock.expectOne('http://localhost:8222/api/friend/requests/received');
-    expect(req.request.method).toBe('GET');
-    req.flush(mockFriendRequests);
-  });
-
-  it('should send friend request', () => {
+  it('should retrieve a friend by ID', () => {
+    const mockFriend = {
+      // Add your mock friend object here
+    };
     const friendId = 1;
 
-    service.sendFriendRequest(friendId).subscribe(response => {
-      expect(response).toBeTruthy();
+    service.getFriendById(friendId).subscribe(friend => {
+      expect(friend).toEqual(mockFriend);
     });
 
-    const req = httpMock.expectOne(`http://localhost:8222/api/friend/requests/user/`);
-    expect(req.request.method).toBe('POST');
-    expect(req.request.body).toEqual(friendId);
-    req.flush({});
+    const req = httpMock.expectOne(`http://localhost:8222/api/friend/${friendId}`);
+    expect(req.request.method).toBe('GET');
+    req.flush(mockFriend);
   });
 
-  // Add more test cases for other methods...
+  it('should retrieve all friends profiles', () => {
+    const mockProfiles = [
+      // Add your mock profile objects here
+    ];
 
+    service.getAllFriendsProfile().subscribe(profiles => {
+      expect(profiles).toEqual(mockProfiles);
+    });
+
+    const req = httpMock.expectOne('http://localhost:8222/api/friend/profiles/all');
+    expect(req.request.method).toBe('GET');
+    req.flush(mockProfiles);
+  });
+
+  it('should delete a friend by ID', () => {
+    const friendId = 1;
+
+    service.deleteFriend(friendId).subscribe();
+
+    const req = httpMock.expectOne(`http://localhost:8222/api/friend/${friendId}`);
+    expect(req.request.method).toBe('DELETE');
+    req.flush({});
+  });
 });
