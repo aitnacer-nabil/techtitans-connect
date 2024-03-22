@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +18,7 @@ import { AddPostComponent } from './components/add-post/add-post.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { SidebarFriendsComponent } from './components/sidebar-friends/sidebar-friends.component';
 import { SidebarSuggestionComponent } from './components/sidebar-suggestion/sidebar-suggestion.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -34,13 +36,15 @@ import { SidebarSuggestionComponent } from './components/sidebar-suggestion/side
     AddPostComponent,
     SidebarComponent,
     SidebarFriendsComponent,
-    SidebarSuggestionComponent
+    SidebarSuggestionComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
