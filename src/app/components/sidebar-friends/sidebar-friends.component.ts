@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Friend} from "../../models/friend/friend";
+import {FriendService} from "../../services/friend/friend.service";
 
 @Component({
   selector: 'app-sidebar-friends',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarFriendsComponent implements OnInit {
 
-  constructor() { }
+  friends: Friend[];
+
+  constructor(private friendService: FriendService) { }
 
   ngOnInit(): void {
+    this.getFriends();
+  }
+
+  getFriends(){
+    this.friendService.getFriends().subscribe(
+      data => {
+        this.friends = data
+      });
   }
 
 }
