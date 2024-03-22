@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
 import { FeedsComponent } from './components/feeds/feeds.component';
 import { CommentsComponent } from './components/comments/comments.component';
 import { FriendsComponent } from './components/friends/friends.component';

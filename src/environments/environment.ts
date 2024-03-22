@@ -3,7 +3,13 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  // port:"8080",
+  // host:"http://localhost",
+  url:"http://localhost:8080/api/v1",
+  // endPoint:[{
+  //   shareds: "shareds"
+  // }]
 };
 
 /*
