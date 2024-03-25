@@ -44,15 +44,18 @@ describe('CommentService', () => {
   it('should save a comment', () => {
     // les paramètres de test
     const postId = 1;
-    const userId = 'user123';
+    const userId = 1;
     const commentText = 'Test comment';
+    const createdAt = new Date();
+
+    const expectedComment: CommentDto = { id: 1, postId, userId, commentText, createdAt };
 
     service.saveComment(postId, commentText, userId).subscribe(comment => {
       // Vérifie si le commentaire retourné correspond aux attentes
       expect(comment).toBeDefined();
       expect(comment.id).toBeTruthy();
       expect(comment.postId).toBe(postId);
-      expect(comment.userId).toBe(Number.parseFloat(userId));
+      expect(comment.userId).toBe(userId);
       expect(comment.commentText).toBe(commentText);
     });
 
@@ -64,3 +67,4 @@ describe('CommentService', () => {
 
  //
 });
+

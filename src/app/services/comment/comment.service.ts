@@ -12,10 +12,10 @@ export class CommentService {
   constructor(private http: HttpClient) { }
 
   // Méthode pour enregistrer un commentaire pour un article spécifique
-  saveComment(postId: number, comment: string, userId: string): Observable<CommentDto> {
+  saveComment(postId: number, comment: string, userId: number): Observable<CommentDto> {
     return this.http.post<CommentDto>(`${this.baseUrl}/post/${postId}`, comment, {
       headers: {
-        'id': userId
+        'id': userId.toString()
       }
     });
   }
