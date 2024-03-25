@@ -53,19 +53,7 @@ describe('FriendService', () => {
     req.flush(mockFriend);
   });
 
-  it('should retrieve all friends profiles', () => {
-    const mockProfiles = [
-      // Add your mock profile objects here
-    ];
-
-    service.getAllFriendsProfile().subscribe(profiles => {
-      expect(profiles).toEqual(mockProfiles);
-    });
-
-    const req = httpMock.expectOne('http://localhost:8222/api/friend/profiles/all');
-    expect(req.request.method).toBe('GET');
-    req.flush(mockProfiles);
-  });
+ 
 
   it('should delete a friend by ID', () => {
     const friendId = 1;

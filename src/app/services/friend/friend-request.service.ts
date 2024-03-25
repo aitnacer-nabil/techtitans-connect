@@ -7,13 +7,13 @@ import { Status } from 'src/app/enums/status';
 })
 export class FriendRequestService {
 
-  private apiurl="http://localhost:8222/api/friend"
+  private apiurl="http://localhost:8222/api/friend";
   private token="eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZW1haWwiOiJ5YXNzaW5lQGdtYWlsLmNvbSIsInN1YiI6Inlhc3NpbmUiLCJpYXQiOjE3MTEwMTQ1NzMsImV4cCI6MTcxMTAxNjM3M30.TUSu8DJ1gozPemgmqsO70iAp5BWXWT90LsV9T1eWXbs";
-  constructor(private httpclient:HttpClient) { }
   private headers = new HttpHeaders({
     'Content-Type': 'application/json',
     'Authorization': `Bearer ${this.token}`
   });
+  constructor(private httpclient:HttpClient) { }
 
   private requestOptions = { headers: this.headers };
 
@@ -39,7 +39,6 @@ export class FriendRequestService {
   getAllReceivedRequests(){
     return this.httpclient.get(this.apiurl+"/requests/received", this.requestOptions);
   }
-
   getAllRequestByStatus(status:Status){
     return this.httpclient.get(this.apiurl+"/requests/all/status?status="+status, this.requestOptions);
   }
