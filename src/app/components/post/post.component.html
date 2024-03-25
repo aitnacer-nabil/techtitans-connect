@@ -27,7 +27,7 @@
       use Lorem Ipsum as their default model text.
     </p>
 
-    <app-reaction-bar  (commentButtonClick)="toggleCommentSection()"></app-reaction-bar>
+    <app-reaction-bar  [postId]="postId"  (commentButtonClick)="toggleCommentSection()"></app-reaction-bar>
   </div>
-  <app-comment-section  *ngIf="showCommentSection" @commentSectionAnimation></app-comment-section>
+  <app-comment-section [postId]="postId"  *ngIf="showCommentSection" @commentSectionAnimation></app-comment-section>
 </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit,Output,EventEmitter } from '@angular/core';
+import { Component, OnInit,Output,EventEmitter, Input } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 @Component({
   selector: 'app-reaction-bar',
@@ -30,9 +30,10 @@ export class ReactionBarComponent implements OnInit {
   reactionColor: string = 'black';
   commentColor: boolean = false;
   @Output() commentButtonClick = new EventEmitter<void>();
+  @Input() postId!: number; 
 
 
-  constructor() {}
+  constructor( private Sh) {}
 
   ngOnInit(): void {}
 
@@ -77,5 +78,8 @@ export class ReactionBarComponent implements OnInit {
   onCommentButtonClick() {
     this.commentButtonClick.emit();
     this.commentColor=!this.commentColor;
+  }
+  sharePost(){
+
   }
 }
