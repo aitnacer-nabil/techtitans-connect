@@ -23,6 +23,7 @@ import { CommentSectionComponent } from './components/comment-section/comment-se
 import { CommentInputComponent } from './components/comment-input/comment-input.component';
 import { ReactionIconsComponent } from './components/reaction-icons/reaction-icons.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -50,7 +51,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

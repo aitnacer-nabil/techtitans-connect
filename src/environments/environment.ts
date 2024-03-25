@@ -6,7 +6,7 @@ export const environment = {
   production: false,
   // port:"8080",
   // host:"http://localhost",
-  url:"http://localhost:8080/api/v1",
+  url:"http://localhost:8222/api/v1",
   // endPoint:[{
   //   shareds: "shareds"
   // }]

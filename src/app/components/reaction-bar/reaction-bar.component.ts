@@ -1,5 +1,6 @@
 import { Component, OnInit,Output,EventEmitter, Input } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
+import { SharedService } from 'src/app/services/shared/shared.service';
 @Component({
   selector: 'app-reaction-bar',
   templateUrl: './reaction-bar.component.html',
@@ -29,11 +30,14 @@ export class ReactionBarComponent implements OnInit {
   reaction: String = 'like';
   reactionColor: string = 'black';
   commentColor: boolean = false;
+  shared:boolean=false;
   @Output() commentButtonClick = new EventEmitter<void>();
   @Input() postId!: number; 
+  @Input() userId!:number;
 
-
-  constructor( private Sh) {}
+  constructor( 
+    private sharedService: SharedService
+  ) {}
 
   ngOnInit(): void {}
 
@@ -80,6 +84,16 @@ export class ReactionBarComponent implements OnInit {
     this.commentColor=!this.commentColor;
   }
   sharePost(){
+    this.sharedService.sharePost(this.postId,this.userId).subscribe(
+      (response) => {
+        console.log("Post Partager avec succes", response);
+        this.shared=true;
+      },
+      (error) => {
+        console.error('Erreur lors de envoi des données au backend', error);
+      }
+    );
+   
 
   }
 }

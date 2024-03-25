@@ -22,6 +22,7 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 export class PostComponent implements OnInit {
   showCommentSection: boolean = false;
   postId: number = 1;
+  userId: number = 1;
 
 
   constructor() { }

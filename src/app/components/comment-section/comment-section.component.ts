@@ -11,6 +11,7 @@ export class CommentSectionComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    
   }
 
 }
