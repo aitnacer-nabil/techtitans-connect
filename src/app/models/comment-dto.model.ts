@@ -1,7 +1,7 @@
 export interface CommentDto {
     id: number;
     postId: number;
-    userId: String;
+    userId: number;
     commentText: string;
     createdAt: Date;
   }

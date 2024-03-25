@@ -44,7 +44,7 @@ describe('CommentService', () => {
   it('should save a comment', () => {
     // les paramètres de test
     const postId = 1;
-    const userId = "1";
+    const userId = 1;
     const commentText = 'Test comment';
     const createdAt = new Date();
 
