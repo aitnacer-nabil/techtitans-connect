@@ -1,35 +1,54 @@
 import { Component, OnInit } from '@angular/core';
-import {FriendService} from "../../services/friend/friend.service";
 import {Friend} from "../../models/friend/friend";
-import {FriendRequest} from "../../models/friend/friend-request";
-import {FriendRequestService} from "../../services/friend/friend-request.service";
+import { FriendRequest } from "../../models/friend/friend-request";
+import { FriendService } from "../../services/friend/friend.service";
+import { FriendRequestService } from "../../services/friend/friend-request.service";
+import {Profile} from "../../models/friend/profile";
 
 @Component({
   selector: 'app-friends',
   templateUrl: './friends.component.html',
   styleUrls: ['./friends.component.css']
 })
-export class FriendsComponent implements OnInit {
+export class FriendsComponent implements OnInit{
 
-  friends: Friend[] = [];
+  friends: Profile[] = [
+    {
+      id: 1,
+      username: 'JohnDoe',
+      password: 'password',
+      email: '' ,
+      firstname: 'John',
+      lastname: 'Doe',
+      dateOfBirth: new Date(),
+      country: 'USA',
+      createdAt: new Date()
+    },
+    {
+      id: 2,
+      username: 'JaneDoe',
+      password: 'password',
+      email: '' ,
+      firstname: 'Jane',
+      lastname: 'Doe',
+      dateOfBirth: new Date(),
+      country: 'USA',
+      createdAt: new Date()
+    }
+  ];
+
   friendRequests: FriendRequest[] = [];
-  id: any;
 
-
-  constructor(private friendService: FriendService,private friendRequestService:FriendRequestService) { }
+  constructor(private friendService: FriendService, private friendRequestService: FriendRequestService) { }
 
   ngOnInit(): void {
-    this.getFriends()
-    this.getFriendsRequest()
-    this.acceptFriendRequest(this.id)
-    this.rejectFriendRequest(this.id)
-    this.deleteFriendRequest(this.id)
-    this.deleteFriend(this.id)
+    this.getFriends();
+    this.getFriendsRequest();
   }
   getFriends() {
-    this.friendService.getFriends().subscribe(
-      (response: Friend[]) => {
-        this.friends = response;
+    this.friendService.getAllFriendsProfile().subscribe(
+      data => {
+        this.friends = data as Profile[];
       },
       (error) => {
         console.error('Erreur lors de la récupération des amis : ', error);

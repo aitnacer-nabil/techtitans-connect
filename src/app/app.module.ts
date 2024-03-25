@@ -17,7 +17,9 @@ import { AddPostComponent } from './components/add-post/add-post.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { SidebarFriendsComponent } from './components/sidebar-friends/sidebar-friends.component';
 import { SidebarSuggestionComponent } from './components/sidebar-suggestion/sidebar-suggestion.component';
-import {HttpClientModule} from "@angular/common/http";
+import { FriendService } from './services/friend/friend.service';
+import { FriendRequestService } from './services/friend/friend-request.service';
+import {HttpClient, HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -42,7 +44,7 @@ import {HttpClientModule} from "@angular/common/http";
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [HttpClient,FriendService,FriendRequestService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
