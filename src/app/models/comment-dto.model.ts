@@ -5,4 +5,3 @@ export interface CommentDto {
     commentText: string;
     createdAt: Date;
   }
-  
