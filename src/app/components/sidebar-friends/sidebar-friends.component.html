@@ -1,54 +1,15 @@
 <div class="card-body">
   <h6 class="card-title">Friends</h6>
 
-  <div class="d-flex justify-content-between mb-2 align-items-center pb-2 border-bottom">
+  <div *ngFor="let profile of profiles, let i = index" class="d-flex justify-content-between mb-2 align-items-center pb-2 border-bottom">
     <div class="d-flex align-items-center hover-pointer">
       <img
         class="img-xs rounded-circle"
-        src="https://bootdey.com/img/Content/avatar/avatar1.png"
+        [src]="i % 3 === 0 ? 'https://bootdey.com/img/Content/avatar/avatar1.png' : i % 3 === 1 ? 'https://bootdey.com/img/Content/avatar/avatar2.png' : 'https://bootdey.com/img/Content/avatar/avatar3.png' "
         alt=""
       />
       <div class="ml-2 mt-3">
-        <p>Yassine</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="d-flex justify-content-between mb-2 pb-2 border-bottom">
-    <div class="d-flex align-items-center hover-pointer">
-      <img
-        class="img-xs rounded-circle"
-        src="https://bootdey.com/img/Content/avatar/avatar2.png"
-        alt=""
-      />
-      <div class="ml-2 mt-3">
-        <p>Nabil</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="d-flex justify-content-between mb-2 align-items-center pb-2 border-bottom">
-    <div class="d-flex align-items-center hover-pointer">
-      <img
-        class="img-xs rounded-circle"
-        src="https://bootdey.com/img/Content/avatar/avatar3.png"
-        alt=""
-      />
-      <div class="ml-2 mt-3">
-        <p>Sila</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="d-flex justify-content-between mb-2 pb-2 border-bottom">
-    <div class="d-flex align-items-center hover-pointer">
-      <img
-        class="img-xs rounded-circle"
-        src="https://bootdey.com/img/Content/avatar/avatar4.png"
-        alt=""
-      />
-      <div class="ml-2 mt-3">
-        <p>Ayoub</p>
+        <p>{{ profile.firstname }}</p>
       </div>
     </div>
   </div>
