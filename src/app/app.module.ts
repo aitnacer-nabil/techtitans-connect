@@ -17,6 +17,10 @@ import { AddPostComponent } from './components/add-post/add-post.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { SidebarFriendsComponent } from './components/sidebar-friends/sidebar-friends.component';
 import { SidebarSuggestionComponent } from './components/sidebar-suggestion/sidebar-suggestion.component';
+import { LoginComponent } from './components/login/login.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SinUpComponent } from './components/sin-up/sin-up.component';
+import { Router } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -34,10 +38,13 @@ import { SidebarSuggestionComponent } from './components/sidebar-suggestion/side
     AddPostComponent,
     SidebarComponent,
     SidebarFriendsComponent,
-    SidebarSuggestionComponent
+    SidebarSuggestionComponent,
+    LoginComponent,
+    SinUpComponent
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     AppRoutingModule
   ],
   providers: [],
