@@ -9,6 +9,7 @@ import { CommentService } from 'src/app/services/comment/comment.service';
 export class CommentsComponent implements OnInit {
   @Input() commentId!:number;
   @Output() boutonClique = new EventEmitter<void>();
+  userId:number=1
   comment:any=[];
 
   constructor(

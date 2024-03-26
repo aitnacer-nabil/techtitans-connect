@@ -15,5 +15,5 @@
       -
       <small class="text-muted">{{comment.createdAt}}</small>
     </div>
-    <div style="cursor: pointer;"><i class="fa fa-trash" (click)="deleteComment()"></i></div>
+    <div style="cursor: pointer;"><i *ngIf="comment.userId == userId" class="fa fa-trash" (click)="deleteComment()"></i></div>
   </div>
