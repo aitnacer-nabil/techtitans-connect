@@ -20,6 +20,7 @@ export class AuthInterceptor implements HttpInterceptor {
     if (request.url.includes(`${this.authenticationService.apiBaseUrl}register`)) {
       return next.handle(request);
     }
+    console.log("intercepted request ...");
     this.authenticationService.loadToken();
     const token = this.authenticationService.getToken();
     if (token) {
