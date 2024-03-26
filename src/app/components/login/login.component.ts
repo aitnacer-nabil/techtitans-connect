@@ -33,6 +33,7 @@ export class LoginComponent implements OnInit {
         // Save the token and user information as needed
         console.log('Login successful', data);
         this.authService.setToken(data);
+        this.authService.getUser();
         // Redirect to the home page
         this.router.navigate(['/home']);
       },

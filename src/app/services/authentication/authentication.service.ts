@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpErrorResponse, HttpResponse} from "@angular/common/http";
+import {HttpClient, HttpErrorResponse, HttpHeaders, HttpResponse} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {JwtHelperService} from "@auth0/angular-jwt";
 import {User} from "../../models/user";
@@ -14,6 +14,7 @@ export class AuthenticationService {
   private user: User | null = null;
   private loggedIn: boolean = false;
   private jwtHelper = new JwtHelperService();
+  private url = 'http://localhost:8222/api/v1/users/logged';
 
 
   constructor(private http: HttpClient) {
@@ -66,6 +67,20 @@ export class AuthenticationService {
     this.token = localStorage.getItem('token');
     this.loggedIn = this.token !== null;
   }
+
+  public getUser(): void {
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${this.token}`);
+    this.http.get(this.url, {headers}).subscribe(data => {
+        // Assuming the login method returns an object with an accessToken property
+        // Save the token and user information as needed
+        this.addUserToLocalStorage(data as User);
+        console.log('Login successful', data);
+      },
+      err => {
+        console.error('Login failed', err);
+      });
+  }
+
 
 
 }
