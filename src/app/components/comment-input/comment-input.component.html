@@ -1,11 +1,12 @@
-<div class="media-body" >
+<form class="media-body" [formGroup]="commentaireForm" (ngSubmit)="saveComment()" >
     <textarea
+      formControlName="commentaire" 
       class="form-control"
       placeholder="Write comment..."
       rows="4"
     ></textarea>
 
-    <a href="" class="btn btn-sm btn-outline-primary float-right mt-n5 mr-2" >
+    <button type="submit"  class="btn btn-sm btn-outline-primary float-right mt-n5 mr-2" >
         <i class="fa fa-arrow-up"></i>
-    </a>
-</div>
+    </button>
+  </form>

@@ -18,7 +18,7 @@ export class SharedService {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        'Authorization': `Bearer eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZW1haWwiOiJtYXJvbW91c2xpaEBnbWFpbC5jb20iLCJzdWIiOiJtYXJvdWFuZSIsImlhdCI6MTcxMTM2Njg4MywiZXhwIjoxNzExMzY4NjgzfQ.Y13FDNpKE3idQV4D5qv7EUGp4d0yIpIoWmuApGP1xys` 
+        'Authorization': `Bearer ${environment.token}` 
       })
     };
 

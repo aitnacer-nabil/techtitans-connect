@@ -7,6 +7,7 @@ export const environment = {
   // port:"8080",
   // host:"http://localhost",
   url:"http://localhost:8222/api/v1",
+  token:"eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZW1haWwiOiJtYXJvbW91c2xpaEBnbWFpbC5jb20iLCJzdWIiOiJtYXJvdWFuZSIsImlhdCI6MTcxMTQ2MTk0OCwiZXhwIjoxNzExNDYzNzQ4fQ.8beqNeK-112x3TemD0CG18m1e3kbsKQRz0JGth-8DvM"
   // endPoint:[{
   //   shareds: "shareds"
   // }]

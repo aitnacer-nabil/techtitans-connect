@@ -24,6 +24,7 @@ import { CommentInputComponent } from './components/comment-input/comment-input.
 import { ReactionIconsComponent } from './components/reaction-icons/reaction-icons.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -52,7 +53,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
