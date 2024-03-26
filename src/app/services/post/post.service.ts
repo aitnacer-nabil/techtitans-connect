@@ -1,7 +1,10 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Media } from 'src/app/models/media.model';
 import { Post } from 'src/app/models/post.model';
+
+const baseUrl = 'http://localhost:8222/api/v1';
 
 @Injectable({
   providedIn: 'root',
@@ -27,5 +30,13 @@ export class PostService {
       fd,
       this.requestOptions
     );
+  }
+
+  getAll(): Observable<Post[]> {
+    return this.http.get<Post[]>(`${baseUrl}/post/all`);
+  }
+
+  getMedia(id: any): Observable<Media[]> {
+    return this.http.get<Media[]>(`${baseUrl}/medias/post/${id}`);
   }
 }
