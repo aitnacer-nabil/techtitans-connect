@@ -20,6 +20,8 @@ import { SidebarSuggestionComponent } from './components/sidebar-suggestion/side
 import {AuthenticationService} from "./services/authentication/authentication.service";
 import {AuthInterceptor} from "./interceptor/auth.interceptor";
 import {AuthGuard} from "./guard/auth.guard";
+import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -37,12 +39,14 @@ import {AuthGuard} from "./guard/auth.guard";
     AddPostComponent,
     SidebarComponent,
     SidebarFriendsComponent,
-    SidebarSuggestionComponent
+    SidebarSuggestionComponent,
+    EditProfileComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule
   ],
   providers: [AuthGuard,AuthenticationService,{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
   bootstrap: [AppComponent]
