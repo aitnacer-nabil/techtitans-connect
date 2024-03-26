@@ -4,6 +4,7 @@ import { FriendRequest } from "../../models/friend/friend-request";
 import { FriendService } from "../../services/friend/friend.service";
 import { FriendRequestService } from "../../services/friend/friend-request.service";
 import {Profile} from "../../models/friend/profile";
+import {Status} from "../../enums/status";
 
 @Component({
   selector: 'app-friends',
@@ -11,6 +12,7 @@ import {Profile} from "../../models/friend/profile";
   styleUrls: ['./friends.component.css']
 })
 export class FriendsComponent implements OnInit{
+
 
   friends: Profile[] = [
     {
@@ -37,13 +39,42 @@ export class FriendsComponent implements OnInit{
     }
   ];
 
-  friendRequests: FriendRequest[] = [];
-
+  // @ts-ignore
+  friendRequests: FriendRequest[] = [
+    {
+      id: 1,
+      userIdSender: 1,
+      friendId: 3,
+      // @ts-ignore
+      status: 'PENDING',
+      createdAt: new Date(),
+      updatedAt: new Date(),
+      friend: {
+        id: 3,
+        username: 'qwerty',
+        password: 'password',
+        email: '' ,
+        firstname: 'qwerty',
+        lastname: 'Doe',
+        dateOfBirth: new Date(),
+        country: 'USA',
+        createdAt: new Date()
+      }
+    }
+  ];
+  selectedStatus: number = 0;
   constructor(private friendService: FriendService, private friendRequestService: FriendRequestService) { }
 
   ngOnInit(): void {
     this.getFriends();
     this.getFriendsRequest();
+  }
+  onChange($event: Event,id?:number) {
+    if(Status[this.selectedStatus] == "ACCEPTED"){
+      this.acceptFriendRequest(id);
+    }else if(Status[this.selectedStatus] == "REJECTED"){
+      this.rejectFriendRequest(id);
+    }
   }
   getFriends() {
     this.friendService.getAllFriendsProfile().subscribe(
@@ -59,7 +90,17 @@ export class FriendsComponent implements OnInit{
   getFriendsRequest() {
     this.friendRequestService.getFriendsRequest().subscribe(
       (response: any) => {
-        this.friendRequests = response as FriendRequest[];  []
+        this.friendRequests = response as FriendRequest[];
+        this.friendRequests.forEach((friendRequest) => {
+          this.friendService.getFriendById(friendRequest.friendId).subscribe(
+            (response: any) => {
+              friendRequest.friend = response as Profile;
+            },
+            (error) => {
+              console.error('Erreur lors de la récupération des amis : ', error);
+            }
+          );
+        });
       },
       (error) => {
         console.error('Erreur lors du chargement des demandes d\'ami : ', error);
@@ -115,5 +156,8 @@ export class FriendsComponent implements OnInit{
       }
     );
   }
+
+  protected readonly Status = Status;
+
 
 }

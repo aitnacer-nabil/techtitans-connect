@@ -20,6 +20,7 @@ import { SidebarSuggestionComponent } from './components/sidebar-suggestion/side
 import { FriendService } from './services/friend/friend.service';
 import { FriendRequestService } from './services/friend/friend-request.service';
 import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [HttpClient,FriendService,FriendRequestService],
   bootstrap: [AppComponent]
