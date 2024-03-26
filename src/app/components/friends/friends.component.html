@@ -15,12 +15,11 @@
                 <h5 class="ml-3">{{friendreq.friend?.firstname+" " + friendreq.friend?.lastname}}</h5>
               </div>
               <div class="actionf">
-                <select name="bus" class="form-control" (change)='onChange($event,friendreq.id)'   [(ngModel)]="selectedStatus">
-                  <option  [ngValue]="0">PENDING</option>
-                  <option  [ngValue]="1">ACCEPTED</option>
-                  <option  [ngValue]="2">REJECTED</option>
-                </select>
+                <button class="btn-info border-0" (click)="acceptFriendRequest(friendreq.id)">ACCEPTED</button>
               </div>
+              <div class="actionf">
+              <button class="btn-warning border-0" (click)="rejectFriendRequest(friendreq.id)">REJECTED</button>
+            </div>
               <div class="actionf">
                 <button class="btn-danger border-0" (click)="deleteFriendRequest(friendreq.id)">Delete</button>
               </div>
