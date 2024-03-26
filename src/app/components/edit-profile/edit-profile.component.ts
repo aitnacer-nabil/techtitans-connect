@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { EditprofileService } from '../../services/editprofile/editprofile.service';
-import { Router } from '@angular/router'; // Import Router
-import {User} from "./user";
+import { Router } from '@angular/router';
+import {User} from "../../models/user"; // Import Router
+
 
 @Component({
   selector: 'app-edit-profile',
