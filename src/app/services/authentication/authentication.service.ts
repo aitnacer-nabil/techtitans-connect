@@ -8,7 +8,7 @@ import {User} from "../../models/user";
   providedIn: 'root'
 })
 export class AuthenticationService {
-    private  apiBaseUrl:string ='http://localhost:8222/api/v1/auth/';
+    public  apiBaseUrl:string ='http://localhost:8222/api/v1/auth/';
     private token: string | null = null;
     private user: User | null = null;
     private  loggedIn: boolean = false;

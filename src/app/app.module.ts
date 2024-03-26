@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FeedsComponent } from './components/feeds/feeds.component';
@@ -17,6 +17,9 @@ import { AddPostComponent } from './components/add-post/add-post.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { SidebarFriendsComponent } from './components/sidebar-friends/sidebar-friends.component';
 import { SidebarSuggestionComponent } from './components/sidebar-suggestion/sidebar-suggestion.component';
+import {AuthenticationService} from "./services/authentication/authentication.service";
+import {AuthInterceptor} from "./interceptor/auth.interceptor";
+import {AuthGuard} from "./guard/auth.guard";
 
 @NgModule({
   declarations: [
@@ -39,9 +42,9 @@ import { SidebarSuggestionComponent } from './components/sidebar-suggestion/side
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [AuthGuard,AuthenticationService,{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
