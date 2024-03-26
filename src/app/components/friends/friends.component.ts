@@ -14,54 +14,10 @@ import {Status} from "../../enums/status";
 export class FriendsComponent implements OnInit{
 
 
-  friends: Profile[] = [
-    {
-      id: 1,
-      username: 'JohnDoe',
-      password: 'password',
-      email: '' ,
-      firstname: 'John',
-      lastname: 'Doe',
-      dateOfBirth: new Date(),
-      country: 'USA',
-      createdAt: new Date()
-    },
-    {
-      id: 2,
-      username: 'JaneDoe',
-      password: 'password',
-      email: '' ,
-      firstname: 'Jane',
-      lastname: 'Doe',
-      dateOfBirth: new Date(),
-      country: 'USA',
-      createdAt: new Date()
-    }
-  ];
+  friends: Profile[] = [];
 
   // @ts-ignore
-  friendRequests: FriendRequest[] = [
-    {
-      id: 1,
-      userIdSender: 1,
-      friendId: 3,
-      // @ts-ignore
-      status: 'PENDING',
-      createdAt: new Date(),
-      updatedAt: new Date(),
-      friend: {
-        id: 3,
-        username: 'qwerty',
-        password: 'password',
-        email: '' ,
-        firstname: 'qwerty',
-        lastname: 'Doe',
-        dateOfBirth: new Date(),
-        country: 'USA',
-        createdAt: new Date()
-      }
-    }
-  ];
+  friendRequests: FriendRequest[] = [];
   selectedStatus: number = 0;
   constructor(private friendService: FriendService, private friendRequestService: FriendRequestService) { }
 
@@ -111,6 +67,8 @@ export class FriendsComponent implements OnInit{
     this.friendRequestService.acceptFriendRequest(id).subscribe(
       (response) => {
         // Handle successful response if needed
+        this.getFriendsRequest();
+        this.getFriends();
         console.log('Friend request accepted successfully:', response);
       },
       (error) => {
@@ -123,6 +81,8 @@ export class FriendsComponent implements OnInit{
     this.friendRequestService.rejectFriendRequest(id).subscribe(
       (response) => {
         // Handle successful response if needed
+        this.getFriendsRequest();
+        this.getFriends();
         console.log('Friend request rejected successfully:', response);
       },
       (error) => {
@@ -136,6 +96,8 @@ export class FriendsComponent implements OnInit{
     this.friendRequestService.deleteFriendRequest(id).subscribe(
       (response) => {
         // Handle successful response if needed
+        this.getFriendsRequest();
+        this.getFriends();
         console.log('Friend request deleted successfully:', response);
       },
       (error) => {
@@ -147,6 +109,8 @@ export class FriendsComponent implements OnInit{
   deleteFriend(id: any) {
     this.friendService.deleteFriend(id).subscribe(
       (response) => {
+        this.getFriendsRequest();
+        this.getFriends();
         console.log('Friend deleted successfully:', response);
         // Optionally, perform any other logic after successful deletion
       },
