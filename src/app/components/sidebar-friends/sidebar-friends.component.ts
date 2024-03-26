@@ -20,7 +20,7 @@ export class SidebarFriendsComponent implements OnInit {
   getFriends(){
     this.friendService.getAllFriendsProfile().subscribe(
       data => {
-        this.profiles = data
+        this.profiles = data as Profile[];
       },
       error =>{
        console.error('Error:',error);
