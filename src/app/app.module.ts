@@ -21,7 +21,10 @@ import {AuthenticationService} from "./services/authentication/authentication.se
 import {AuthInterceptor} from "./interceptor/auth.interceptor";
 import {AuthGuard} from "./guard/auth.guard";
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
-import {FormsModule} from "@angular/forms";
+import { LoginComponent } from './components/login/login.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SinUpComponent } from './components/sin-up/sin-up.component';
+import { Router } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -40,14 +43,20 @@ import {FormsModule} from "@angular/forms";
     SidebarComponent,
     SidebarFriendsComponent,
     SidebarSuggestionComponent,
-    EditProfileComponent
+    EditProfileComponent,
+    LoginComponent,
+    SinUpComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserModule,
+    ReactiveFormsModule,
+    AppRoutingModule
   ],
+
   providers: [AuthGuard,AuthenticationService,{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
