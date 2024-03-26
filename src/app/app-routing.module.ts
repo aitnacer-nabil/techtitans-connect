@@ -4,13 +4,12 @@ import {EditProfileComponent} from "./components/edit-profile/edit-profile.compo
 import { LoginComponent } from './components/login/login.component';
 import { SinUpComponent } from './components/sin-up/sin-up.component';
 import { HomeComponent } from './components/home/home.component';
+import {AuthGuard} from "./guard/auth.guard";
 const routes: Routes = [
-  { path: 'home', component: HomeComponent },
-  { path: 'editProfile', component: EditProfileComponent },
-  { path: '', redirectTo: '/home', pathMatch: 'full'},
-  { path: 'login', component: LoginComponent },
-  { path: 'signup', component: SinUpComponent },
-  { path: '**', redirectTo: 'login' }
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: 'editProfile', component: EditProfileComponent, canActivate: [AuthGuard]},
+  { path: 'login', component: LoginComponent ,},
+  { path: 'signup', component: SinUpComponent , },
 ];
 
 @NgModule({
