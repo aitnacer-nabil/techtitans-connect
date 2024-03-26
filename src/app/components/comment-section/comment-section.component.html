@@ -4,6 +4,7 @@
     class=" ml-1"
     height="10px"
     src="assets/svg/like.svg"
+    src="assets/svg/like.svg"
   />
   <span style="font-size: 12px;">{{ interaction.countLikes}} </span>
   <img
@@ -37,11 +38,11 @@ src="assets/svg/dislike.svg"
 />
 <span style="font-size: 12px;">{{ interaction.countWow }} </span>
   </div>
- 
+
 
   <ng-container *ngFor="let comment of comments">
-    
- 
+
+
         <app-comments  (boutonClique)="handleBoutonClique()" [commentId]=comment.id></app-comments>
   </ng-container>
 
@@ -55,7 +56,7 @@ src="assets/svg/dislike.svg"
           src="https://bootdey.com/img/Content/avatar/avatar1.png"
         />
     </a>
-    
+
     <app-comment-input (boutonClique)="handleBoutonClique()" [postId]="postId" [userId]="userId" class="col-md-11"></app-comment-input>
     </div>
   </div>
