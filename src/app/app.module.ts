@@ -24,22 +24,17 @@ import {AuthInterceptor} from "./interceptor/auth.interceptor";
 import {AuthGuard} from "./guard/auth.guard";
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 import { LoginComponent } from './components/login/login.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, } from '@angular/forms';
 import { SinUpComponent } from './components/sin-up/sin-up.component';
 import { Router } from '@angular/router';
 import { FriendService } from './services/friend/friend.service';
 import { FriendRequestService } from './services/friend/friend-request.service';
-import {HttpClient, HttpClientModule} from "@angular/common/http";
-import {FormsModule} from "@angular/forms";
 import { ReactionBarComponent } from './components/reaction-bar/reaction-bar.component';
 import { CommentSectionComponent } from './components/comment-section/comment-section.component';
 import { CommentInputComponent } from './components/comment-input/comment-input.component';
 import { ReactionIconsComponent } from './components/reaction-icons/reaction-icons.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms';
 
-import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -66,7 +61,7 @@ import { HttpClientModule } from '@angular/common/http';
     CommentSectionComponent,
     CommentInputComponent,
     ReactionIconsComponent
-    SidebarSuggestionComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -79,8 +74,6 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [],
-  bootstrap: [AppComponent],
 
   providers: [AuthGuard,AuthenticationService,{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
  // providers: [HttpClient,FriendService,FriendRequestService],
