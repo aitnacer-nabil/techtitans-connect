@@ -29,6 +29,14 @@ import { FriendService } from './services/friend/friend.service';
 import { FriendRequestService } from './services/friend/friend-request.service';
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
+import { ReactionBarComponent } from './components/reaction-bar/reaction-bar.component';
+import { CommentSectionComponent } from './components/comment-section/comment-section.component';
+import { CommentInputComponent } from './components/comment-input/comment-input.component';
+import { ReactionIconsComponent } from './components/reaction-icons/reaction-icons.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -50,13 +58,19 @@ import {FormsModule} from "@angular/forms";
     EditProfileComponent,
     LoginComponent,
     SinUpComponent,
+    SidebarSuggestionComponent,
+    ReactionBarComponent,
+    CommentSectionComponent,
+    CommentInputComponent,
+    ReactionIconsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
     HttpClientModule,
-    FormsModule,
     ReactiveFormsModule,
+    FormsModule
   ],
 
   providers: [AuthGuard,AuthenticationService,{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],

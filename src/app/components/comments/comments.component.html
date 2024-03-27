@@ -1,1 +1,19 @@
-<p>comments works!</p>
+<div class="social-comment d-flex align-items-center" >
+    <a href="" class="pull-left">
+      <img
+        alt="image"
+        src="https://bootdey.com/img/Content/avatar/avatar1.png"
+      />
+    </a>
+    <div class="media-body">
+      <a href="#"> Andrew Williams </a>
+    {{comment.commentText}}
+      <br />
+      <a href="#" class="small"
+      ><i class="fa fa-thumbs-up"></i> 26 Like this!</a
+      >
+      -
+      <small class="text-muted">{{comment.createdAt}}</small>
+    </div>
+    <div style="cursor: pointer;"><i *ngIf="comment.userId == userId" class="fa fa-trash" (click)="deleteComment()"></i></div>
+  </div>

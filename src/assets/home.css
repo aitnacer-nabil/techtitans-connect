@@ -370,3 +370,34 @@ body{margin-top:20px;}
   background: #ffffff;
   padding: 10px 15px;
 }
+
+.reaction-icons{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 330px;
+  background-color: #eeeeee;
+  border-radius: 30px;
+  position: absolute;
+  margin-top: -52px;
+  margin-left: -50px;
+ 
+
+}
+.reaction-icons span{
+
+  padding: 5px;
+  border-radius: 50px;
+
+}
+.reaction-icons span:hover{
+background-color: #ccc;
+transform: scale(1.1);
+transition: all .5s ease-in-out;
+}
+
+  
+.btn:focus, .btn:active {
+  outline: none !important;
+  box-shadow: none !important;
+}

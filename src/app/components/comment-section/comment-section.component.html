@@ -1,0 +1,61 @@
+<div class="social-footer" *ngIf="interaction">
+  <div>
+    <img
+    class=" ml-1"
+    height="10px"
+    src="assets/svg/like.svg"
+  />
+  <span style="font-size: 12px;">{{ interaction.countLikes}} </span>
+  <img
+  class="ml-1"
+  height="10px"
+  src="assets/svg/love.svg"
+/>
+<span style="font-size: 12px;">{{ interaction.countLoves }} </span>
+<img
+class=" ml-1"
+height="10px"
+src="assets/svg/wow.svg"
+/>
+<span style="font-size: 12px;">{{ interaction.countWow }} </span>
+<img
+class=" ml-1"
+height="10px"
+src="assets/svg/angry.svg"
+/>
+<span style="font-size: 12px;">{{ interaction.countAngry }} </span>
+<img
+class=" ml-1"
+height="10px"
+src="assets/svg/sad.svg"
+/>
+<span style="font-size: 12px;">{{ interaction.countSad }} </span>
+<img
+class=" ml-1"
+height="10px"
+src="assets/svg/dislike.svg"
+/>
+<span style="font-size: 12px;">{{ interaction.countWow }} </span>
+  </div>
+
+
+  <ng-container *ngFor="let comment of comments">
+
+
+        <app-comments  (boutonClique)="handleBoutonClique()" [commentId]=comment.id></app-comments>
+  </ng-container>
+
+
+
+
+    <div class="social-comment row " >
+      <a href="" class="pull-left col-md-1">
+        <img
+          alt="image"
+          src="https://bootdey.com/img/Content/avatar/avatar1.png"
+        />
+    </a>
+
+    <app-comment-input (boutonClique)="handleBoutonClique()" [postId]="postId" [userId]="userId" class="col-md-11"></app-comment-input>
+    </div>
+  </div>
