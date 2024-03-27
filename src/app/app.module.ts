@@ -25,6 +25,10 @@ import { LoginComponent } from './components/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SinUpComponent } from './components/sin-up/sin-up.component';
 import { Router } from '@angular/router';
+import { FriendService } from './services/friend/friend.service';
+import { FriendRequestService } from './services/friend/friend-request.service';
+import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -52,12 +56,11 @@ import { Router } from '@angular/router';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    BrowserModule,
     ReactiveFormsModule,
-    AppRoutingModule
   ],
 
   providers: [AuthGuard,AuthenticationService,{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
+ // providers: [HttpClient,FriendService,FriendRequestService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

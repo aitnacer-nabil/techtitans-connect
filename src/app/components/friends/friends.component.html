@@ -1,1 +1,50 @@
-<p>friends works!</p>
+<div class="row">
+      <div class="col-md-12 grid-margin">
+        <div *ngIf="friendRequests!=null">
+        <div *ngFor="let friendreq of friendRequests" class="card mb-2">
+          <div class="card-body">
+            <div
+              class="d-flex justify-content-between align-items-center">
+              <div class="imagef d-flex align-items-center">
+                <img
+                  class="profile-pic rounded-circle"
+                  width="50px"
+                  src="https://bootdey.com/img/Content/avatar/avatar6.png"
+                  alt="profile"
+                />
+                <h5 class="ml-3">{{friendreq.friend?.firstname+" " + friendreq.friend?.lastname}}</h5>
+              </div>
+              <div class="actionf">
+                <button class="btn-info border-0" (click)="acceptFriendRequest(friendreq.id)">ACCEPTED</button>
+              </div>
+              <div class="actionf">
+              <button class="btn-warning border-0" (click)="rejectFriendRequest(friendreq.id)">REJECTED</button>
+            </div>
+              <div class="actionf">
+                <button class="btn-danger border-0" (click)="deleteFriendRequest(friendreq.id)">Delete</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div *ngFor="let friend of friends" class="card mb-2">
+          <div class="card-body">
+            <div
+              class="d-flex justify-content-between align-items-center">
+              <div class="imagef d-flex align-items-center">
+                <img
+                  class="profile-pic rounded-circle"
+                  width="50px"
+                  src="https://bootdey.com/img/Content/avatar/avatar6.png"
+                  alt="profile"
+                />
+                <h5 class="ml-3">{{friend.firstname+" " + friend.lastname}}</h5>
+              </div>
+              <div class="actionf">
+                <button class="btn-danger border-0" (click)="deleteFriend(friend.id)">Delete</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
