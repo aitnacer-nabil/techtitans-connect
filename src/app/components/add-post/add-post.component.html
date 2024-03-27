@@ -1,22 +1,26 @@
 <div class="panel panel-default">
-  <div class="panel-body">
-    <input
-      type="email"
-      class="form-control"
-      placeholder="What are you doing now?"
-    />
-  </div>
-  <div class="panel-footer mt-2">
-    <div class="btn-group">
-      <button type="button" class="btn btn-link">
-        <i class="fa fa-camera"></i>
-      </button>
+  <form [formGroup]="createPost" (ngSubmit)="onSubmit(createPost)">
+    <div class="panel-body">
+      <input
+        type="text"
+        formControlName="body"
+        class="form-control"
+        placeholder="What are you doing now?"
+      />
     </div>
+    <div class="panel-footer mt-2">
+      <div class="btn-group">
+        <input
+          type="file"
+          class="btn btn-link"
+          (change)="onImagePicked($event)"
+        />
+        <!-- <i class="fa fa-camera"></i> -->
+      </div>
 
-    <div class="pull-right">
-      <button type="button" class="btn btn-success">
-        submit
-      </button>
+      <div class="pull-right">
+        <button type="submit" class="btn btn-success">submit</button>
+      </div>
     </div>
-  </div>
+  </form>
 </div>
